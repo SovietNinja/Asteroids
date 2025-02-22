@@ -38,7 +38,7 @@ def main():
                 sys.exit()
             for shot in shots:
                 if shot.collision_check(astr):
-                    astr.kill()
+                    astr.split()
                     shot.kill()
         for obj in updatable:
             obj.update(dt)
