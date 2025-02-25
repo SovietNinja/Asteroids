@@ -2,6 +2,7 @@
 # the open-source pygame library
 # throughout this file
 import sys
+from health import Health
 import pygame
 from player import Player
 from asteroidfield import AsteroidField
@@ -18,6 +19,7 @@ Player.containers = (updatable, drawable)
 Asteroid.containers = (asteroids, updatable, drawable)
 AsteroidField.containers = (updatable)
 Shot.containers = (shots, updatable, drawable)
+Health.containers = (drawable,updatable)
 def main():
     pygame.init()
     clock = pygame.time.Clock()

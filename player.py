@@ -2,13 +2,17 @@ import pygame
 from circleshape import CircleShape
 from constants import *
 from shot import Shot
+from health import Health
+
 
 class Player(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
         self.rotation = 0
         self.timer = 0 
+        self.health = Health(self.position, PLAYER_MAX_HEALTH)        
 
+        
     def rotate(self, dt):
         self.rotation += PLAYER_TURN_SPEED * dt
 
@@ -49,6 +53,7 @@ class Player(CircleShape):
 
     def draw(self, screen):
         pygame.draw.polygon(screen,(255,255,255),self.triangle(),2)
+        self.health.draw(screen)
 
     def move(self, dt):
         forward = pygame.Vector2(0,1).rotate(self.rotation)
